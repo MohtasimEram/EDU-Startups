@@ -2,13 +2,18 @@ import React, { useState } from 'react';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import Header from './HomePage/Header.jsx';
 import Hero from './HomePage/Hero.jsx';
-import Login from './LoginPage/login.jsx';
+import Login from './LoginPage/Login.jsx';
 import SignUp from './SignUpPage/SignUp.jsx';
 import HomeAfterLogin from './HomeAfterLogin/HomeAfterLogin.jsx';
 
 function App() {
   const [isLoggedIn, setIsLoggedIn] = useState(false); // Simulate login state
   const [username, setUsername] = useState(''); // Store the username
+
+  const handleLogout = () => {
+    setIsLoggedIn(false); // Reset login state
+    setUsername(''); // Reset username
+  };
 
   return (
     <Router>
@@ -17,6 +22,7 @@ function App() {
           isLoggedIn={isLoggedIn}
           setIsLoggedIn={setIsLoggedIn}
           username={username}
+          handleLogout={handleLogout}
         />
         <Routes>
           <Route path="/" element={isLoggedIn ? <HomeAfterLogin /> : <Hero />} />

@@ -1,9 +1,11 @@
-import React from 'react';
-import { Link, useLocation } from 'react-router-dom';
+import React, { useState } from 'react';
+import { Link, useLocation, useNavigate } from 'react-router-dom';
 import logo from '../assets/logo.png'; // Adjust the path as needed
 
-function Header({ isLoggedIn, setIsLoggedIn, username }) {
+function Header({ isLoggedIn, setIsLoggedIn, username, handleLogout }) {
   const location = useLocation(); // Get the current route
+  const navigate = useNavigate(); // For redirecting after logout
+  const [isDropdownOpen, setIsDropdownOpen] = useState(false); // State for dropdown visibility
 
   // Check if the current route is login or signup
   const isAuthPage = location.pathname === '/login' || location.pathname === '/signup';
@@ -12,6 +14,16 @@ function Header({ isLoggedIn, setIsLoggedIn, username }) {
   if (isAuthPage) {
     return null;
   }
+
+  const toggleDropdown = () => {
+    setIsDropdownOpen(!isDropdownOpen);
+  };
+
+  const onLogout = () => {
+    handleLogout(); // Call the logout function from App.jsx
+    setIsDropdownOpen(false); // Close the dropdown
+    navigate('/'); // Redirect to homepage
+  };
 
   return (
     <header className="w-full bg-[#F5F5DC] py-4">
@@ -22,16 +34,16 @@ function Header({ isLoggedIn, setIsLoggedIn, username }) {
             <img src={logo} alt="EDU Startups Logo" className="w-12 h-12" />
             <div className="ml-2 flex flex-col">
               <h1 className="text-2xl pl-2 font-poppins font-bold text-[#000000] leading-none">EDU</h1>
-              <h1 className="text-2xl pl-2 font-poppins font-bold text-[#000000] leading-none">Startups</h1>
+              <h1 className="text-2xl pl-2 font-poppins font-bold text-[# 000000] leading-none">Startups</h1>
             </div>
           </div>
         </Link>
 
         {/* Conditional Rendering Based on Login State */}
         {isLoggedIn ? (
-          <div className="flex-1 flex items-center justify-center relative pr-20">
+          <div className="flex-1 flex items-center relative">
             {/* Search Bar with Icon */}
-            <div className="w-full max-w-lg relative">
+            <div className="w-full max-w-lg mx-auto relative">
               <input
                 type="text"
                 placeholder="Search Products or Business"
@@ -53,24 +65,40 @@ function Header({ isLoggedIn, setIsLoggedIn, username }) {
                 />
               </svg>
             </div>
-            {/* Profile Button with Dynamic Username */}
-            <button className="bg-[#3D0301] font-poppins font-bold text-[20px] text-white px-4 py-2 rounded-lg flex items-center space-x-2 hover:bg-[#6B1532] transition absolute right-0">
-              <span>{username || 'User'}</span> {/* Fallback to 'User' if username is empty */}
-              <svg
-                className="w-5 h-5"
-                fill="none"
-                stroke="currentColor"
-                viewBox="0 0 24 24"
-                xmlns="http://www.w3.org/2000/svg"
+            {/* Profile Button with Dropdown */}
+            <div className="relative ml-4">
+              <button
+                onClick={toggleDropdown}
+                className="bg-[#3D0301] font-poppins font-bold text-[20px] text-white px-4 py-2 rounded-lg flex items-center space-x-2 hover:bg-[#6B1532] transition"
               >
-                <path
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                  strokeWidth="2"
-                  d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z"
-                />
-              </svg>
-            </button>
+                <span>{username || 'User'}</span>
+                <svg
+                  className="w-5 h-5"
+                  fill="none"
+                  stroke="currentColor"
+                  viewBox="0 0 24 24"
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                  <path
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                    strokeWidth="2"
+                    d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z"
+                  />
+                </svg>
+              </button>
+              {/* Dropdown Menu */}
+              {isDropdownOpen && (
+                <div className="absolute right-0 mt-2 w-48 bg-[#3D0301] rounded-lg shadow-lg z-10">
+                  <button
+                    onClick={onLogout}
+                    className="w-full text-left px-4 py-2 text-white font-poppins font-bold text-[16px] hover:bg-[#6B1532] transition rounded-lg"
+                  >
+                    Logout
+                  </button>
+                </div>
+              )}
+            </div>
           </div>
         ) : (
           <div className="space-x-4">
