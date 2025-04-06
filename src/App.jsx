@@ -4,7 +4,7 @@ import Header from './HomePage/Header.jsx';
 import Hero from './HomePage/Hero.jsx';
 import Login from './LoginPage/Login.jsx';
 import SignUp from './SignUpPage/SignUp.jsx';
-import HomeAfterLogin from './HomeAfterLogin/HomeAfterLogin.jsx';
+import Businesses from './BusinessesPage/Businesses.jsx';
 
 function App() {
   const [isLoggedIn, setIsLoggedIn] = useState(false); // Simulate login state
@@ -25,7 +25,8 @@ function App() {
           handleLogout={handleLogout}
         />
         <Routes>
-          <Route path="/" element={isLoggedIn ? <HomeAfterLogin /> : <Hero />} />
+          {/* Use Hero component for homepage regardless of login state */}
+          <Route path="/" element={<Hero />} />
           <Route
             path="/login"
             element={<Login setIsLoggedIn={setIsLoggedIn} setUsername={setUsername} />}
@@ -33,6 +34,16 @@ function App() {
           <Route
             path="/signup"
             element={<SignUp setIsLoggedIn={setIsLoggedIn} setUsername={setUsername} />}
+          />
+          <Route path="/businesses" element={<Businesses />} />
+          {/* Placeholder for About Us page */}
+          <Route
+            path="/about-us"
+            element={
+              <div className="w-full bg-[#F5F5DC] min-h-screen flex items-center justify-center py-16">
+                <h2 className="text-3xl font-poppins font-bold">About Us Page (To Be Built)</h2>
+              </div>
+            }
           />
         </Routes>
       </div>

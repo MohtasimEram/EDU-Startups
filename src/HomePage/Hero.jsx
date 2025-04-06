@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom'; // Import Link for navigation
 import heroImage from '../assets/hero-image2.png'; // Adjust the path as needed
 
 function Hero() {
@@ -12,12 +13,18 @@ function Hero() {
             A place to find all EDU entrepreneurs in one place.
           </p>
           <div className="space-x-4">
-            <a href="businesses.html" className="bg-[#3D0301] text-white px-6 py-3 rounded-lg hover:bg-[#6B1532] transition font-bold font-poppins">
+            <Link
+              to="/businesses"
+              className="bg-[#3D0301] text-white px-6 py-3 rounded-lg hover:bg-[#6B1532] transition font-bold font-poppins"
+            >
               Browse Businesses
-            </a>
-            <a href="aboutUs.html" className="bg-[#EBE8DB] text-[#000000] px-6 py-3 rounded-lg hover:bg-[#E5E5C5] transition font-bold font-poppins">
+            </Link>
+            <Link
+              to="/about-us"
+              className="bg-[#EBE8DB] text-[#000000] px-6 py-3 rounded-lg hover:bg-[#E5E5C5] transition font-bold font-poppins"
+            >
               About Us
-            </a>
+            </Link>
           </div>
         </div>
         {/* Right Side: Image (covering full height) */}
