@@ -5,6 +5,7 @@ import Hero from './HomePage/Hero.jsx';
 import Login from './LoginPage/Login.jsx';
 import SignUp from './SignUpPage/SignUp.jsx';
 import Businesses from './BusinessesPage/Businesses.jsx';
+import Products from './ProductsPage/Products.jsx';
 
 function App() {
   const [isLoggedIn, setIsLoggedIn] = useState(false); // Simulate login state
@@ -36,6 +37,7 @@ function App() {
             element={<SignUp setIsLoggedIn={setIsLoggedIn} setUsername={setUsername} />}
           />
           <Route path="/businesses" element={<Businesses />} />
+          <Route path="/business/:id/products" element={<Products />} />
           {/* Placeholder for About Us page */}
           <Route
             path="/about-us"
