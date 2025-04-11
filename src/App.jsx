@@ -6,6 +6,7 @@ import Login from './LoginPage/Login.jsx';
 import SignUp from './SignUpPage/SignUp.jsx';
 import Businesses from './BusinessesPage/Businesses.jsx';
 import Products from './ProductsPage/Products.jsx';
+import AboutUs from './AboutUsPage/AboutUs.jsx';
 
 function App() {
   const [isLoggedIn, setIsLoggedIn] = useState(false); // Simulate login state
@@ -38,15 +39,7 @@ function App() {
           />
           <Route path="/businesses" element={<Businesses />} />
           <Route path="/business/:id/products" element={<Products />} />
-          {/* Placeholder for About Us page */}
-          <Route
-            path="/about-us"
-            element={
-              <div className="w-full bg-[#F5F5DC] min-h-screen flex items-center justify-center py-16">
-                <h2 className="text-3xl font-poppins font-bold">About Us Page (To Be Built)</h2>
-              </div>
-            }
-          />
+          <Route path="/about-us" element={<AboutUs />} />
         </Routes>
       </div>
     </Router>

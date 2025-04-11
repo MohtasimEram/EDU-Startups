@@ -6,7 +6,7 @@ const businesses = [
   {
     id: 1,
     name: 'CryoTech',
-    logo: '../assets/Businesses/logo1.png', // Replace with actual logo URL
+    logo: '../assets/Businesses/logo.png', // Replace with actual logo URL
     socialLinks: {
       facebook: 'https://facebook.com',
       instagram: 'https://instagram.com',
