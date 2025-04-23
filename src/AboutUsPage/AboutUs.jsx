@@ -40,7 +40,8 @@ function AboutUs() {
       <div className="mt-16 text-center">
         <h3 className="text-4xl font-poppins font-bold mb-8">Want your business to get listed?</h3>
         <p className="text-3xl font-bold font-poppins mb-10">We’ll do it for you</p>
-        <a href="mailto:231012712@eastdelta.edu.bd" className="bg-[#3D0301] text-white font-poppins font-bold text-[22px] px-6 py-3 rounded-lg hover:bg-[#6B1532] transition">Contact Now</a>
+        <a href="mailto:231012712@eastdelta.edu.bd, mohtasimeram73@gmail.comgit status
+" className="bg-[#3D0301] text-white font-poppins font-bold text-[22px] px-6 py-3 rounded-lg hover:bg-[#6B1532] transition">Contact Now</a>
       </div>
     </section>
   );
