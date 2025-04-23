@@ -10,7 +10,7 @@ function Hero() {
         <div className="md:w-1/2 text-white pl-0 md:pl-0 flex flex-col justify-center">
           <h1 className="text-7xl font-bold font-poppins mb-6">EDU Startups</h1>
           <p className="text-3xl font-bold font-poppins mb-8">
-            A place to find all EDU entrepreneurs in one place.
+            A place to find all the EDU entrepreneurs in one place.
           </p>
           <div className="space-x-4">
             <Link

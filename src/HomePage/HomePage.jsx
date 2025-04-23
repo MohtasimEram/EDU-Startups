@@ -1,7 +1,7 @@
 import React from "react";
 import Header from "./Header";
 import Hero from "./Hero";
-import Login from '../LoginPage/login.jsx';
+import Login from '../LoginPage/Login.jsx';
 import SignUp from "../SignUpPage/SignUp.jsx";
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 

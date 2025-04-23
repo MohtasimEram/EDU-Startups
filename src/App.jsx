@@ -9,13 +9,21 @@ import Products from './ProductsPage/Products.jsx';
 import AboutUs from './AboutUsPage/AboutUs.jsx';
 
 function App() {
-  const [isLoggedIn, setIsLoggedIn] = useState(false); // Simulate login state
-  const [username, setUsername] = useState(''); // Store the username
+  const [isLoggedIn, setIsLoggedIn] = useState(() => {
+    return localStorage.getItem('isLoggedIn') === 'true';
+  });
+  const [username, setUsername] = useState(() => {
+    return localStorage.getItem('username') || '';
+  });
+  
 
   const handleLogout = () => {
-    setIsLoggedIn(false); // Reset login state
-    setUsername(''); // Reset username
+    setIsLoggedIn(false);
+    setUsername('');
+    localStorage.removeItem('isLoggedIn');
+    localStorage.removeItem('username');
   };
+  
 
   return (
     <Router>
