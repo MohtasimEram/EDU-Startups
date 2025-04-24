@@ -36,7 +36,7 @@ const handleSearch = async (e) => {
   }
 
   try {
-    const res = await axios.get(`http://localhost:5000/api/search?q=${query}`);
+    const res = await axios.get(`${import.meta.env.VITE_API_BASE_URL}/api/search?q=${query}`);
     const { businesses, products } = res.data;
 
     const results = [];
