@@ -2,6 +2,7 @@ import axios from 'axios';
 import React, { useState } from 'react';
 import { Link, useLocation, useNavigate } from 'react-router-dom';
 import logo from '../assets/Logo.png'; 
+import { useEffect } from 'react';
 
 function Header({ isLoggedIn, setIsLoggedIn, username, handleLogout }) {
   const location = useLocation();
@@ -9,7 +10,11 @@ function Header({ isLoggedIn, setIsLoggedIn, username, handleLogout }) {
   const [isDropdownOpen, setIsDropdownOpen] = useState(false);
   const [searchQuery, setSearchQuery] = useState('');
   const [searchResults, setSearchResults] = useState([]);
-
+  useEffect(() => {
+    setSearchQuery('');
+    setSearchResults([]);
+  }, [location.pathname]);
+  
   const isAuthPage = location.pathname === '/login' || location.pathname === '/signup';
 
   if (isAuthPage) return null;
