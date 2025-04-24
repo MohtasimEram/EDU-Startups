@@ -25,6 +25,11 @@ app.use('/api/products', productRoutes);       // Get product list by pageName
 app.use('/api/auth', authRoutes);              // User signup/login
 app.use('/api/about', require('./routes/aboutRoutes'));
 app.use('/api/search', searchRoutes);
+
+app.get('/', (req, res) => {
+  res.send('EDU Startup Backend is Running 🚀');
+});
+
 // Port
 const PORT = process.env.PORT || 5000;
 app.listen(PORT, () => {
