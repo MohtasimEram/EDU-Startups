@@ -9,10 +9,10 @@ function Hero() {
         {/* Text Content */}
         <div className="text-center md:text-left flex-1">
           <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold text-[#3D0301] leading-tight font-poppins mb-6">
-            Discover and Support <br className="hidden md:block" /> Student Entrepreneurs
+            Discover and Support <br className="hidden md:block" /> EDU Startups
           </h1>
           <p className="text-lg sm:text-xl text-gray-700 font-poppins mb-6">
-            Explore startups by students and help their ideas grow.
+            A Place to find all the entrepreneurs of East Delta Univesrity in one place
           </p>
           <Link to="/businesses">
             <button className="bg-[#3D0301] hover:bg-[#6B1532] text-white text-lg font-bold font-poppins px-6 py-3 rounded-lg transition">
