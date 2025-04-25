@@ -14,17 +14,11 @@ function Login({ setIsLoggedIn, setUsername }) {
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
-      // ✅ Make login request
       const res = await axios.post(`${import.meta.env.VITE_API_BASE_URL}/api/auth/login`, formData);
-
-      // ✅ Set state
       setIsLoggedIn(true);
       setUsername(res.data.username);
-
-      // ✅ Save to localStorage
       localStorage.setItem('isLoggedIn', 'true');
       localStorage.setItem('username', res.data.username);
-
       navigate('/');
     } catch (err) {
       setError(err.response?.data?.message || 'Login failed.');
@@ -32,9 +26,9 @@ function Login({ setIsLoggedIn, setUsername }) {
   };
 
   return (
-    <section className="w-full bg-[#F5F5DC] min-h-screen flex items-center justify-center py-16">
-      <div className="bg-[#B03052] p-10 rounded-lg shadow-lg w-full max-w-sm">
-        <h2 className="text-3xl font-bold font-poppins text-white text-center mb-10">Login</h2>
+    <section className="min-h-screen flex items-center justify-center bg-[#F5F5DC] px-4">
+      <div className="bg-[#B03052] p-6 sm:p-10 rounded-lg shadow-lg w-full max-w-md">
+        <h2 className="text-2xl sm:text-3xl font-bold text-white text-center mb-6">Login</h2>
         {error && <p className="text-red-300 text-center mb-3">{error}</p>}
         <form className="space-y-5" onSubmit={handleSubmit}>
           <input
@@ -43,7 +37,7 @@ function Login({ setIsLoggedIn, setUsername }) {
             placeholder="Username"
             value={formData.username}
             onChange={handleChange}
-            className="w-full px-4 py-3 rounded-lg bg-white font-bold font-poppins text-black"
+            className="w-full px-4 py-3 rounded-lg bg-white text-black font-bold"
           />
           <input
             type="password"
@@ -51,11 +45,11 @@ function Login({ setIsLoggedIn, setUsername }) {
             placeholder="Password"
             value={formData.password}
             onChange={handleChange}
-            className="w-full px-4 py-3 rounded-lg bg-white font-bold font-poppins text-black"
+            className="w-full px-4 py-3 rounded-lg bg-white text-black font-bold"
           />
           <button
             type="submit"
-            className="w-full bg-[#3D0301] text-white px-4 py-3 rounded-lg hover:bg-[#6B1532] transition font-bold font-poppins"
+            className="w-full bg-[#3D0301] text-white py-3 rounded-lg font-bold hover:bg-[#6B1532] transition"
           >
             Login
           </button>
