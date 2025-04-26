@@ -2,17 +2,14 @@ import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import axios from 'axios';
 
-
 function SignUp({ setIsLoggedIn, setUsername }) {
   const navigate = useNavigate();
   const [formData, setFormData] = useState({ username: '', email: '', password: '' });
   const [error, setError] = useState('');
 
-
   const handleChange = (e) => {
     setFormData(prev => ({ ...prev, [e.target.name]: e.target.value }));
   };
-
 
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -26,13 +23,12 @@ function SignUp({ setIsLoggedIn, setUsername }) {
     }
   };
 
-
   return (
-    <section className="w-full bg-[#F5F5DC] min-h-screen flex items-center justify-center py-16">
-      <div className="bg-[#B03052] p-8 rounded-lg shadow-lg w-full max-w-sm">
+    <section className="w-full bg-[#F5F5DC] min-h-screen flex items-center justify-center py-16 px-4">
+      <div className="bg-[#B03052] p-8 md:p-10 rounded-lg shadow-lg w-full max-w-md">
         <h2 className="text-3xl font-bold font-poppins text-white text-center mb-8">Create Your Account</h2>
-        {error && <p className="text-red-300 text-center mb-3">{error}</p>}
-        <form className="space-y-4" onSubmit={handleSubmit}>
+        {error && <p className="text-red-400 text-center mb-3">{error}</p>}
+        <form className="space-y-5" onSubmit={handleSubmit}>
           <input
             type="text"
             name="username"
@@ -68,6 +64,5 @@ function SignUp({ setIsLoggedIn, setUsername }) {
     </section>
   );
 }
-
 
 export default SignUp;
