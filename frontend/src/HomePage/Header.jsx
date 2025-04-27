@@ -125,7 +125,7 @@ function Header({ isLoggedIn, setIsLoggedIn, username, handleLogout }) {
                 <div className="absolute right-0 mt-2 w-40 bg-[#3D0301] rounded-lg shadow-lg z-10">
                   <button
                     onClick={onLogout}
-                    className="w-full text-left px-4 py-2 text-white font-poppins font-bold text-sm hover:bg-[#6B1532] transition"
+                    className="w-full text-left px-4 py-2.5 text-white font-poppins font-bold text-sm hover:bg-[#6B1532] rounded-lg transition"
                   >
                     Logout
                   </button>
